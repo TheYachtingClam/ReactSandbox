@@ -1,20 +1,34 @@
 import "./App.css";
-import { PostForm } from "./components/PostForm";
-// import { NameList } from "./components/NameList";
-// import { ClickHandler } from "./components/ClickHandler";
-// import { ParentComponent } from "./components/ParentComponent";
-// import { UserGreeting } from "./components/UserGreeting";
-// import { Greet } from "./components/Greet";
-// import { Message } from "./components/Message";
-// import { Stylesheet } from "./components/Stylesheet";
-// import { Form } from "./components/Form";
-import { PostList } from "./components/PostList";
+import NAMES from "./components/Data.json";
+import { useState, useTransition } from "react";
 
 function App() {
+    const [query, setQuery] = useState("");
+    const [inputValue, setInputValue] = useState("");
+
+    const [isPending, startTransition] = useTransition();
+
+    const changeHandler = (event) => {
+        setInputValue(event.target.value);
+        startTransition(() => {
+            setQuery(event.target.value);
+        });
+    };
+    const filterdNames = NAMES.filter((item) => {
+        return (
+            item.first_name.includes(query) || item.last_name.includes(query)
+        );
+    });
+
     return (
         <div className="App">
-            <PostForm />
-            <PostList />
+            <input type="text" value={inputValue} onChange={changeHandler} />
+            {isPending && <p>Updating List...</p>}
+            {filterdNames.map((item) => (
+                <p key={item.id}>
+                    {item.first_name} {item.last_name}
+                </p>
+            ))}
         </div>
     );
 }
