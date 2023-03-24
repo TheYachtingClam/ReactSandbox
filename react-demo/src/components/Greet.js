@@ -1,4 +1,4 @@
-const Greet = (props) => {
+export const Greet = (props) => {
     return (
         <div>
             <h1>
@@ -8,5 +8,3 @@ const Greet = (props) => {
         </div>
     );
 };
-
-export default Greet;
