@@ -5,12 +5,13 @@ import "./App.css";
 //import { UserGreeting } from "./components/UserGreeting";
 // import { Greet } from "./components/Greet";
 //import { Message } from "./components/Message";
-import { Stylesheet } from "./components/Stylesheet";
+//import { Stylesheet } from "./components/Stylesheet";
+import { Form } from "./components/Form";
 
 function App() {
     return (
         <div className="App">
-            <Stylesheet />
+            <Form />
         </div>
     );
 }
