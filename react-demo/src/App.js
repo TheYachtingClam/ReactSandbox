@@ -1,17 +1,20 @@
 import "./App.css";
-//import { NameList } from "./components/NameList";
+import { PostForm } from "./components/PostForm";
+// import { NameList } from "./components/NameList";
 // import { ClickHandler } from "./components/ClickHandler";
 // import { ParentComponent } from "./components/ParentComponent";
-//import { UserGreeting } from "./components/UserGreeting";
+// import { UserGreeting } from "./components/UserGreeting";
 // import { Greet } from "./components/Greet";
-//import { Message } from "./components/Message";
-//import { Stylesheet } from "./components/Stylesheet";
-import { Form } from "./components/Form";
+// import { Message } from "./components/Message";
+// import { Stylesheet } from "./components/Stylesheet";
+// import { Form } from "./components/Form";
+import { PostList } from "./components/PostList";
 
 function App() {
     return (
         <div className="App">
-            <Form />
+            <PostForm />
+            <PostList />
         </div>
     );
 }
